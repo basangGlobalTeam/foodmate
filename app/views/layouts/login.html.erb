@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= full_title yield(:title) %></title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all'%>
+  </head>
+
+  <body class="landing-page">
+  <div class="content-bg-wrap">
+    <div class="content-bg"></div>
+  </div>
+
+
+  <!-- Landing Header -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12">
+        <div id="site-header-landing" class="header-landing">
+          <a href="<%= root_path %>" class="logo">
+            <img src="<%= image_path "logo.png" %>" alt="Olympus">
+            <h5 class="logo-title">olympus</h5>
+          </a>
+
+          <ul class="profile-menu">
+            <li>
+              <a href="#">About Us</a>
+            </li>
+            <li>
+              <a href="#">Careers</a>
+            </li>
+            <li>
+              <a href="#">FAQS</a>
+            </li>
+            <li>
+              <a href="#">Help & Support</a>
+            </li>
+            <li>
+              <a href="#" class="js-expanded-menu">
+                <svg class="olymp-menu-icon"><use xlink:href="icons/icons.svg#olymp-menu-icon"></use></svg>
+                <svg class="olymp-close-icon"><use xlink:href="icons/icons.svg#olymp-close-icon"></use></svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ... end Landing Header -->
+
+  <!-- Login-Registration Form  -->
+
+  <div class="container">
+    <div class="row display-flex">
+      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+        <div class="landing-content">
+          <%= yield("form") %>
+        </div>
+      </div>
+
+      <div class="col-xl-5 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+        <div class="registration-login-form">
+          <%= yield %>
+        </div>
+        <!--login form here-->
+      </div>
+    </div>
+  </div>
+    <%= javascript_include_tag 'application'%>
+  </body>
+</html>
+

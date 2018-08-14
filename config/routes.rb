@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
-  root "landing#index"
+  unauthenticated  do
+    root "landing#index"
+  end
+
+  authenticated  do
+    root "home#index"
+  end
+
   resources :home, only: :index
 end

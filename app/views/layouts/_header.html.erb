@@ -374,11 +374,10 @@
                   </a>
                 </li>
                 <li>
-                  <a href="#">
+                  <%= link_to destroy_user_session_path, method: :delete do %>
                     <svg class="olymp-logout-icon"><use xlink:href="icons/icons.svg#olymp-logout-icon"></use></svg>
-
                     <span>Log Out</span>
-                  </a>
+                  <% end %>
                 </li>
               </ul>
 

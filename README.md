@@ -1,24 +1,13 @@
-# README
+# フードメイト（バーさんチーム）
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# チームメンバー
 
-Things you may want to cover:
+* ティエンさん（TL）
 
-* Ruby version
+* ゴックさん
 
-* System dependencies
+* 洸平さん
 
-* Configuration
+* きりおさん
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 2018年8月　- HUST

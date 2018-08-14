@@ -12,4 +12,14 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require_tree .
+//= require jquery
+//= require bootstrap/dist/js/bootstrap.min
+//= require ./lib/material.min
+//= require ./lib/theme-plugins
+//= require ./lib/main
+//= require ./lib/ajax-pagination
+//= require ./lib/selectize.min
+//= require ./lib/moment.min
+//= require ./lib/daterangepicker.min
+//= require ./lib/simplecalendar
+//= require ./lib/jquery.magnific-popup.min

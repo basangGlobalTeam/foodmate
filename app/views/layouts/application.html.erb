@@ -7,10 +7,13 @@
     <title><%= full_title yield(:title) %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all'%>
   </head>
 
   <body>
+    <%= render "layouts/sidebar" %>
+    <%= render "layouts/header" %>
     <%= yield %>
     <%= javascript_include_tag 'application'%>
   </body>

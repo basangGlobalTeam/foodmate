@@ -10,10 +10,12 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require bootstrap/dist/css/bootstrap.min
+ *= require lib/bootstrap-reboot
+ *= require lib/bootstrap
+ *= require lib/bootstrap-grid
  *= require font-awesome
- *= require lib/blocks
  *= require lib/theme-styles
+ *= require lib/blocks
  *= require_tree ./lib/plugin/
  *= require_self
  */

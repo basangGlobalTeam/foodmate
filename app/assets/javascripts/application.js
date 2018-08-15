@@ -13,7 +13,6 @@
 //= require rails-ujs
 //= require activestorage
 //= require jquery
-//= require bootstrap/dist/js/bootstrap.min
 //= require ./lib/material.min
 //= require ./lib/theme-plugins
 //= require ./lib/main

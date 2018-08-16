@@ -23,4 +23,5 @@
 //= require ./lib/daterangepicker.min
 //= require ./lib/simplecalendar
 //= require ./lib/jquery.magnific-popup.min
+//= require ./lib/swiper.jquery.min
 //= require_tree .

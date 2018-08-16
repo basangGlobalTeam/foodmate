@@ -37,12 +37,14 @@
       <%= post.content %>
     </p>
     <div class="post-thumb">
-      <% if post.images.first %>
-        <% if post.images.count > 1 %>
-          <div class="more-images">+ <%= post.images.count %></div>
+      <a href="<%= post_path post %>">
+        <% if post.images.first %>
+          <% if post.images.count > 1 %>
+            <div class="more-images">+ <%= post.images.count %></div>
+          <% end %>
+          <img src="<%= post.images.first.file.thumb.url %>" alt="photo">
         <% end %>
-        <img src="<%= post.images.first.file.thumb.url %>" alt="photo">
-      <% end %>
+      </a>
     </div>
     <div class="post-additional-info inline-items">
 
@@ -102,6 +104,6 @@
 
   </article>
 
-  <a href="#" class="more-comments">View post <span class="fa fa-fw fa-eye"></span></a>
+  <a href="<%= post_path post %>" class="more-comments">View post <span class="fa fa-fw fa-eye"></span></a>
 
 </div>

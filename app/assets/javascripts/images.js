@@ -1,21 +1,25 @@
 Dropzone.autoDiscover = false;
 $(document).ready(function(){
-  var dropzone = new Dropzone ("#image-upload", {
-    dictRemoveFileConfirmation:  "Are you sure?",
-    paramName: "image[file]",
-    addRemoveLinks: true,
-    url: "/images",
-    headers: {
-      'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
-    },
-    success: function(file, response){
-      updateImageCount();
-    },
-    removedfile: function (file) {
-      updateImageCount();
-      $(document).find(file.previewElement).remove();
-    }
-  });
+  var dropzone = null;
+
+  if ($('#image-upload').length) {
+    dropzone = new Dropzone ("#image-upload", {
+      dictRemoveFileConfirmation:  "Are you sure?",
+      paramName: "image[file]",
+      addRemoveLinks: true,
+      url: "/images",
+      headers: {
+        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+      },
+      success: function(file, response){
+        updateImageCount();
+      },
+      removedfile: function (file) {
+        updateImageCount();
+        $(document).find(file.previewElement).remove();
+      }
+    });
+  }
 
   function updateImageCount() {
     if(dropzone.files.length > 0) {
@@ -41,5 +45,22 @@ $(document).ready(function(){
   $('.add-more-info').click(function () {
     $('.more-info').toggleClass("d-none");
     $('.add-more-info svg').addClass('image-active');
+  });
+
+  $('.btn-update-cover').click(function () {
+    $('input.input-cover').trigger('click')
+  });
+  
+  $("input.input-cover").change(function () {
+    $('.update-cover').submit();
+  });
+
+  $('.avatar-update').click(function (e) {
+    e.preventDefault();
+    $('input.input-avatar').trigger('click')
+  });
+
+  $("input.input-avatar").change(function () {
+    $('.update-avatar').submit();
   });
 });

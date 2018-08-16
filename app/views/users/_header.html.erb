@@ -4,7 +4,15 @@
 			<div class="ui-block">
 				<div class="top-header">
 					<div class="top-header-thumb">
-						<img src="http://via.placeholder.com/1920x640" alt="nature">
+            <% if current_user.id == @user.id %>
+              <button class="btn btn-primary btn-update-cover"><i class="fa fa-fw fa-image"></i> Update Cover</button>
+              <%= form_for(current_user, as: :user, url: user_registration_path, html: { method: :put, class: "d-none update-cover" }) do |f| %>
+                <div class="field">
+                  <%= f.file_field :cover, class: "input-cover" %>
+                </div>
+              <% end %>
+            <% end %>
+						<img src="<%= @user.cover.thumb.url %>" alt="nature">
 					</div>
 					<div class="profile-section">
 						<div class="row">
@@ -28,7 +36,7 @@
 									</li>
 									<li>
 										<div class="more">
-											<svg class="olymp-three-dots-icon"><use xlink:href="icons/icons.svg#olymp-three-dots-icon"></use></svg>
+											<svg class="olymp-three-dots-icon"><use xlink:href="/icons/icons.svg#olymp-three-dots-icon"></use></svg>
 											<ul class="more-dropdown more-with-triangle">
 												<li>
 													<a href="#">Report Profile</a>
@@ -44,12 +52,19 @@
 						</div>
 					</div>
 					<div class="top-header-author">
-						<a href="02-ProfilePage.html" class="author-thumb">
-							<img src="http://via.placeholder.com/124x124" alt="author">
+						<a href="#" class="author-thumb" title="Click to change avatar">
+							<img src="<%= @user.avatar.thumb.url %>" alt="author" class="avatar-update">
+              <% if current_user.id == @user.id %>
+                <%= form_for(current_user, as: :user, url: user_registration_path, html: { method: :put, class: "d-none update-avatar" }) do |f| %>
+                  <div class="field">
+                    <%= f.file_field :avatar, class: "input-avatar" %>
+                  </div>
+                <% end %>
+              <% end %>
 						</a>
 						<div class="author-content">
-							<a href="02-ProfilePage.html" class="h4 author-name"><%= @user.name %></a>
-							<div class="country">San Francisco, CA</div>
+							<a href="<%= user_path @user %>" class="h4 author-name"><%= @user.name %></a>
+							<div class="country"><%= @user.email %></div>
 						</div>
 					</div>
 				</div>

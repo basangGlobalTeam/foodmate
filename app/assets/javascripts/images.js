@@ -63,4 +63,10 @@ $(document).ready(function(){
   $("input.input-avatar").change(function () {
     $('.update-avatar').submit();
   });
+
+  $('.new-comment').keydown(function (e) {
+    if(e.keyCode === 13) {
+      $('.form-new-comment').submit();
+    }
+  })
 });

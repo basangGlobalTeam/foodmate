@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   before_action :find_post, only: [:show]
 
   def show
+    @comments = @post.comments.order(id: :desc).page(params[:page]).per 10
   end
 
   def create

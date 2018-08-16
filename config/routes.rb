@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   resources :images, only: [:create]
   resources :notfound, only: :index
   resources :posts, only: [:show, :create, :edit, :update, :destroy] do
-    resources :comments, only: [:update, :destroy]
+    resources :comments, only: [:create, :update, :destroy]
   end
 end

@@ -2,10 +2,11 @@
   <article class="hentry post">
 
     <div class="post__author author vcard inline-items">
-      <img src="<%= post.user.avatar.thumb36.url %>" alt="author">
+      <a href="<%= user_path post.user %>"><img src="<%= post.user.avatar.thumb36.url %>" alt="author"></a>
+
 
       <div class="author-date">
-        <a class="h6 post__author-name fn" href="#"><%= post.user.email %>
+        <a class="h6 post__author-name fn" href="<%= user_path post.user %>"><%= post.user.name %>
         </a>
         <div class="post__date">
           <time class="published" datetime="2004-07-24T18:18">
@@ -48,7 +49,7 @@
     </div>
     <div class="post-additional-info inline-items">
 
-      <a href="#" class="post-add-icon inline-items">
+      <a href="<%= post_path post %>" class="post-add-icon inline-items">
         <svg class="olymp-heart-icon"><use xlink:href="icons/icons.svg#olymp-heart-icon"></use></svg>
         <span>24</span>
       </a>
@@ -82,20 +83,15 @@
       </ul>
 
       <div class="names-people-likes">
-        <a href="#">You</a>, <a href="#">Elaine</a> and
+        <a href="<%= post_path post %>">You</a>, <a href="#">Elaine</a> and
         <br>22 more liked this
       </div>
 
 
       <div class="comments-shared">
-        <a href="#" class="post-add-icon inline-items">
+        <a href="<%= post_path post %>" class="post-add-icon inline-items">
           <svg class="olymp-speech-balloon-icon"><use xlink:href="icons/icons.svg#olymp-speech-balloon-icon"></use></svg>
-          <span>17</span>
-        </a>
-
-        <a href="#" class="post-add-icon inline-items">
-          <svg class="olymp-share-icon"><use xlink:href="icons/icons.svg#olymp-share-icon"></use></svg>
-          <span>24</span>
+          <span><%= post.comments.count %></span>
         </a>
       </div>
 

@@ -22,7 +22,7 @@
 
       <div class="author-page author vcard inline-items more">
         <div class="author-thumb">
-          <img alt="author" src="img/author-page.jpg" class="avatar">
+          <img alt="author" src="<%= current_user.avatar.thumb36.url %>" class="avatar" width="36px">
           <span class="icon-status online"></span>
           <div class="more-dropdown more-with-triangle">
             <div class="mCustomScrollbar" data-mcs-theme="dark">
@@ -33,17 +33,8 @@
               <ul class="account-settings">
                 <li>
                   <a href="<%= edit_user_registration_path %>">
-
                     <svg class="olymp-menu-icon"><use xlink:href="/icons/icons.svg#olymp-menu-icon"></use></svg>
-
                     <span>プロフィール設定</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="36-FavPage-SettingsAndCreatePopup.html">
-                    <svg class="olymp-star-icon left-menu-icon"  data-toggle="tooltip" data-placement="right"   data-original-title="FAV PAGE"><use xlink:href="/icons/icons.svg#olymp-star-icon"></use></svg>
-
-                    <span>お気に入りのページを作る</span>
                   </a>
                 </li>
                 <li>
@@ -55,7 +46,7 @@
               </ul>
 
               <div class="ui-block-title ui-block-title-small">
-                <h6 class="title">Olympusについて</h6>
+                <h6 class="title">フードメイトについて</h6>
               </div>
 
               <ul>

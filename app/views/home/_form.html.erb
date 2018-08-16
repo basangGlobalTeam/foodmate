@@ -7,7 +7,7 @@
 
           <svg class="olymp-status-icon"><use xlink:href="icons/icons.svg#olymp-status-icon"></use></svg>
 
-          <span>Status</span>
+          <span>投稿</span>
         </a>
       </li>
     </ul>
@@ -21,17 +21,17 @@
             <img src="<%= current_user.avatar.thumb36.url %>" alt="author">
           </div>
           <div class="form-group with-icon label-floating">
-            <label class="control-label">Share what you are thinking here...</label>
+            <label class="control-label">レストランをみんなにシェアしよう！</label>
             <textarea class="form-control" placeholder="" name="post[content]"></textarea>
             <br>
             <div class="add-options-message d-none more-info">
               <div class="form-group label-floating">
-                <label class="control-label">Restaurant name</label>
+                <label class="control-label">レストラン名</label>
                 <input class="form-control" placeholder="" type="text" name="post[restaurant]">
               </div>
               <br>
               <div class="form-group label-floating">
-                <label class="control-label">Address</label>
+                <label class="control-label">住所</label>
                 <input class="form-control" placeholder="" type="text" name="post[address]">
               </div>
               <br>
@@ -53,7 +53,7 @@
             <div class="d-none file">
 
             </div>
-            <button class="btn btn-primary btn-md-2 btn-post-status">Post Status</button>
+            <button class="btn btn-primary btn-md-2 btn-post-status">投稿</button>
           </div>
 
         </form>

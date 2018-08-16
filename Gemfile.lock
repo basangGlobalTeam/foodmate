@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/stympy/faker.git
+  revision: 6fabcbb20a536ba23782069a3dd651279935469d
+  branch: master
+  specs:
+    faker (1.9.1)
+      i18n (>= 0.7)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -216,6 +224,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   config
   devise
+  faker!
   font-awesome-rails
   geocoder
   jbuilder (~> 2.5)
@@ -235,4 +244,4 @@ RUBY VERSION
    ruby 2.4.1p111
 
 BUNDLED WITH
-   1.15.3
+   1.16.3

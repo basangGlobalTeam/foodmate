@@ -2,7 +2,7 @@ class UsersController < ApplicationController
     before_action :find_user, only: :show
     
     def show
-        
+        @posts = @user.posts.order(id: :desc)
     end
     
     private

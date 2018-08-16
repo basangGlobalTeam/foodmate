@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   def layout_by_resource
     if controller_name == "landing"
       "landing"
-    elsif devise_controller?
+    elsif devise_controller? && params[:controller] != "devise/registrations" && params[:action] != "edit"
       "login"
     else
       "application"

@@ -1,0 +1,64 @@
+<div class="ui-block">
+  <div class="news-feed-form">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active inline-items" data-toggle="tab" href="#home-1" role="tab" aria-expanded="true">
+
+          <svg class="olymp-status-icon"><use xlink:href="icons/icons.svg#olymp-status-icon"></use></svg>
+
+          <span>Status</span>
+        </a>
+      </li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div class="tab-pane active" id="home-1" role="tabpanel" aria-expanded="true">
+        <form action="<%= posts_path %>" method="POST" id="new-post">
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+          <div class="author-thumb">
+            <img src="<%= image_path "36x36.png" %>" alt="author">
+          </div>
+          <div class="form-group with-icon label-floating">
+            <label class="control-label">Share what you are thinking here...</label>
+            <textarea class="form-control" placeholder="" name="post[content]"></textarea>
+            <br>
+            <div class="add-options-message d-none more-info">
+              <div class="form-group label-floating">
+                <label class="control-label">Restaurant name</label>
+                <input class="form-control" placeholder="" type="text" name="post[restaurant]">
+              </div>
+              <br>
+              <div class="form-group label-floating">
+                <label class="control-label">Address</label>
+                <input class="form-control" placeholder="" type="text" name="post[address]">
+              </div>
+              <br>
+              <div class="form-group label-floating">
+                <label class="control-label">Food</label>
+                <input class="form-control" placeholder="" type="text" name="post[food]">
+              </div>
+            </div>
+          </div>
+          <div class="add-options-message">
+            <a href="#" class="options-message add-photos" data-toggle="tooltip" data-placement="top"   data-original-title="ADD PHOTOS">
+              <svg class="olymp-camera-icon" data-toggle="modal" data-target="#update-header-photo"><use xlink:href="icons/icons.svg#olymp-camera-icon"></use></svg>
+              <span></span>
+            </a>
+
+            <a href="#" class="options-message add-more-info" data-toggle="tooltip" data-placement="top"   data-original-title="ADD MORE INFORMATION">
+              <svg class="olymp-small-pin-icon"><use xlink:href="icons/icons.svg#olymp-small-pin-icon"></use></svg>
+            </a>
+            <div class="d-none file">
+
+            </div>
+            <button class="btn btn-primary btn-md-2 btn-post-status">Post Status</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render "home/popup" %>

@@ -14,8 +14,11 @@
  *= require lib/bootstrap
  *= require lib/bootstrap-grid
  *= require font-awesome
+ *= require dropzone/dist/dropzone
  *= require lib/theme-styles
  *= require lib/blocks
  *= require_tree ./lib/plugin/
+ *= require images
+ *= require posts
  *= require_self
  */

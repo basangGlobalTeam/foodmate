@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'registrations' }
   
   unauthenticated  do
     root "landing#index"
@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     root "home#index"
   end
 
-  resources :home, only: :index
   resources :users, only: :show
+  resources :images, only: [:create]
+  resources :posts, only: [:show, :create, :edit, :update, :destroy] do
+    resources :comments, only: [:update, :destroy]
+  end
 end

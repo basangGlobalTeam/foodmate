@@ -29,7 +29,7 @@ gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
+gem 'mini_magick', '~> 4.8'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -40,6 +40,9 @@ gem 'devise'
 gem "font-awesome-rails"
 gem "geocoder"
 gem 'config'
+gem 'dropzonejs-rails'
+gem 'carrierwave'
+gem 'kaminari'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

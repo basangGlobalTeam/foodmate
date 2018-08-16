@@ -5,7 +5,7 @@
 				<div class="top-header">
 					<div class="top-header-thumb">
             <% if current_user.id == @user.id %>
-              <button class="btn btn-primary btn-update-cover"><i class="fa fa-fw fa-image"></i> Update Cover</button>
+              <button class="btn btn-primary btn-update-cover"><i class="fa fa-fw fa-image"></i>カバー写真の変更</button>
               <%= form_for(current_user, as: :user, url: user_registration_path, html: { method: :put, class: "d-none update-cover" }) do |f| %>
                 <div class="field">
                   <%= f.file_field :cover, class: "input-cover" %>
@@ -19,20 +19,20 @@
 							<div class="col-lg-5 col-md-5 ">
 								<ul class="profile-menu">
 									<li>
-										<a href="02-ProfilePage.html" class="active">Timeline</a>
+										<a href="02-ProfilePage.html" class="active">タイムライン</a>
 									</li>
 									<li>
-										<a href="05-ProfilePage-About.html">About</a>
+										<a href="05-ProfilePage-About.html">詳細</a>
 									</li>
 								</ul>
 							</div>
 							<div class="col-lg-5 ml-auto col-md-5">
 								<ul class="profile-menu">
 									<li>
-										<a href="07-ProfilePage-Photos.html">Following</a>
+										<a href="07-ProfilePage-Photos.html">フォロー中</a>
 									</li>
 									<li>
-										<a href="09-ProfilePage-Videos.html">Followers</a>
+										<a href="09-ProfilePage-Videos.html">フォロワー</a>
 									</li>
 									<li>
 										<div class="more">

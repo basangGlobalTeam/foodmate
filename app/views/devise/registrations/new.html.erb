@@ -1,43 +1,72 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name%>
-  </div>
-  
-     <div class="field">
-    <%= f.label :sex %><br />
-    <%= f.number_field :sex%>
-  </div>
-  
-   <div class="field">
-    <%= f.label :date_of_birth %><br />
-    <%= f.date_field :date_of_birth%>
-  </div>
-    <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+<% content_for "form" do %>
+  <%= render "devise/intro" %>
 <% end %>
+<!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#home" role="tab">
+        <svg class="olymp-login-icon"><use xlink:href="/icons/icons.svg#olymp-login-icon"></use></svg>
+      </a>
+    </li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="home" role="tabpanel" data-mh="log-tab">
+      <div class="title h6">フードメイトアカウントの登録</div>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+        <br>
+        <div class="row">
+          <div class="col-sm-12">
 
-<%= render "devise/shared/links" %>
+            <div class="col-lg-12">
+              <div class="form-group label-floating is-empty">
+                <label class="control-label">氏名</label>
+                <input class="form-control" placeholder="" type="text" name="user[name]" required>
+              </div>
+            </div>
+            <div class="col-xl-12 col-lg-12 col-md-12">
+              <div class="form-group label-floating">
+                <label class="control-label">メールアドレス</label>
+                <input class="form-control" placeholder="" type="email"  name="user[email]" required>
+              </div>
+              <div class="form-group label-floating">
+                <label class="control-label">パスワード</label>
+                <input class="form-control" placeholder="" type="password"  name="user[password]" required>
+              </div>
+
+              <div class="form-group date-time-picker label-floating">
+                <label class="control-label">誕生日</label>
+                <input value="10/24/1984"  name="user[date_of_birth]" required />
+                <span class="input-group-addon">
+											<svg class="olymp-calendar-icon"><use xlink:href="icons/icons.svg#olymp-calendar-icon"></use></svg>
+										</span>
+              </div>
+
+              <div class="form-group label-floating is-select">
+                <label class="control-label">性別</label>
+                <select class="selectpicker form-control" size="auto"  name="user[sex]" required>
+                  <option value="1">男性</option>
+                  <option value="0">女性</option>
+                </select>
+              </div>
+
+              <div class="remember">
+                <div class="checkbox">
+                  <label>
+                    <input name="optionsCheckboxes" type="checkbox" required>
+                    <a href="#">利用規約</a>に同意します
+                  </label>
+                </div>
+              </div>
+
+              <button href="#" type="submit" class="btn btn-purple btn-lg full-width">登録完了!</button>
+            </div>
+
+          </div>
+        </div>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+

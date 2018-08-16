@@ -1,0 +1,18 @@
+// Place all the styles related to the images controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.image-active {
+  fill: #ff5e3a;
+}
+
+.btn-update-cover {
+  top: 20px;
+  position: absolute;
+  right: 20px;
+  z-index: 2;
+}
+
+.w-last-photo img {
+  width: 78px;
+  height: 78px;
+}

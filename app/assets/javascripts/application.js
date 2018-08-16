@@ -13,6 +13,7 @@
 //= require rails-ujs
 //= require activestorage
 //= require jquery
+//= require dropzone
 //= require ./lib/material.min
 //= require ./lib/theme-plugins
 //= require ./lib/main
@@ -22,3 +23,5 @@
 //= require ./lib/daterangepicker.min
 //= require ./lib/simplecalendar
 //= require ./lib/jquery.magnific-popup.min
+//= require ./lib/swiper.jquery.min
+//= require_tree .

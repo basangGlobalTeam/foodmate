@@ -1,0 +1,109 @@
+<div class="ui-block">
+  <article class="hentry post">
+
+    <div class="post__author author vcard inline-items">
+      <img src="<%= post.user.avatar.thumb36.url %>" alt="author">
+
+      <div class="author-date">
+        <a class="h6 post__author-name fn" href="#"><%= post.user.email %>
+        </a>
+        <div class="post__date">
+          <time class="published" datetime="2004-07-24T18:18">
+            <%= time_ago_in_words post.created_at %>
+          </time>
+          <% if post.restaurant.present?  %>
+            in
+            <%= post.restaurant %> <br>
+          <% end %>
+          <% if post.address.present?  %>
+            <i class="fa fa-fw fa-map-marker"></i> <%= post.address %> <br>
+          <% end %>
+        </div>
+      </div>
+      <% if current_user.id == post.user.id %>
+        <div class="more"><svg class="olymp-three-dots-icon"><use xlink:href="icons/icons.svg#olymp-three-dots-icon"></use></svg>
+        <ul class="more-dropdown">
+          <li>
+            <a href="#">Edit Post</a>
+          </li>
+          <li>
+            <a href="#">Delete Post</a>
+          </li>
+        </ul>
+      </div>
+      <% end %>
+    </div>
+    <p>
+      <%= post.content %>
+    </p>
+    <div class="post-thumb">
+      <a href="<%= post_path post %>">
+        <% if post.images.first %>
+          <% if post.images.count > 1 %>
+            <div class="more-images">+ <%= post.images.count %></div>
+          <% end %>
+          <img src="<%= post.images.first.file.thumb.url %>" alt="photo">
+        <% end %>
+      </a>
+    </div>
+    <div class="post-additional-info inline-items">
+
+      <a href="#" class="post-add-icon inline-items">
+        <svg class="olymp-heart-icon"><use xlink:href="icons/icons.svg#olymp-heart-icon"></use></svg>
+        <span>24</span>
+      </a>
+
+      <ul class="friends-harmonic">
+        <li>
+          <a href="#">
+            <img src="<%= image_path "28x28.png" %>" alt="friend">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="<%= image_path "28x28.png" %>" alt="friend">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="<%= image_path "28x28.png" %>" alt="friend">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="<%= image_path "28x28.png" %>" alt="friend">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="<%= image_path "28x28.png" %>" alt="friend">
+          </a>
+        </li>
+      </ul>
+
+      <div class="names-people-likes">
+        <a href="#">You</a>, <a href="#">Elaine</a> and
+        <br>22 more liked this
+      </div>
+
+
+      <div class="comments-shared">
+        <a href="#" class="post-add-icon inline-items">
+          <svg class="olymp-speech-balloon-icon"><use xlink:href="icons/icons.svg#olymp-speech-balloon-icon"></use></svg>
+          <span>17</span>
+        </a>
+
+        <a href="#" class="post-add-icon inline-items">
+          <svg class="olymp-share-icon"><use xlink:href="icons/icons.svg#olymp-share-icon"></use></svg>
+          <span>24</span>
+        </a>
+      </div>
+
+
+    </div>
+
+  </article>
+
+  <a href="<%= post_path post %>" class="more-comments">View post <span class="fa fa-fw fa-eye"></span></a>
+
+</div>

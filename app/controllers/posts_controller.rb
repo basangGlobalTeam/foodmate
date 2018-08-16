@@ -23,7 +23,7 @@ class PostsController < ApplicationController
   def find_post
     @post = Post.find_by id: params[:id]
     unless @post
-      redirect_to root_path
+      redirect_to notfound_index_path
     end
   end
 end

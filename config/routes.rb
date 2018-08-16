@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :users, only: :show
   resources :images, only: [:create]
+  resources :notfound, only: :index
   resources :posts, only: [:show, :create, :edit, :update, :destroy] do
     resources :comments, only: [:update, :destroy]
   end

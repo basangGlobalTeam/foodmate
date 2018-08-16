@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     def find_user
         @user = User.find_by id: params[:id]
         unless @user
-          redirect_to notfound_index
+          redirect_to notfound_index_path
         end
     end
 end

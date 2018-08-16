@@ -9,9 +9,12 @@ class User < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, :if => lambda{ |obj| obj.address_changed? }
 
+  mount_uploader :avatar, AvatarUploader
+  mount_uploader :cover, CoverUploader
+
   has_many :posts
   has_many :comments
   has_many :follows
   has_many :followers, class_name: Follow.name, foreign_key: :user_follow_id
-  has_and_belongs_to_many :images
+  has_many :images
 end

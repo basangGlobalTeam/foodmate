@@ -34,9 +34,9 @@
         <% end %>
         <!--Prev Next Arrows-->
 
-        <svg class="btn-next olymp-popup-right-arrow"><use xlink:href="/icons/icons.svg#olymp-popup-right-arrow"></use></svg>
+        <svg class="btn-next olymp-popup-right-arrow image-active"><use xlink:href="/icons/icons.svg#olymp-popup-right-arrow"></use></svg>
 
-        <svg class="btn-prev olymp-popup-left-arrow"><use xlink:href="/icons/icons.svg#olymp-popup-left-arrow"></use></svg>
+        <svg class="btn-prev olymp-popup-left-arrow image-active"><use xlink:href="/icons/icons.svg#olymp-popup-left-arrow"></use></svg>
 
       </div>
 
@@ -87,9 +87,20 @@
 
         <div class="post-additional-info inline-items">
 
-          <a href="#" class="post-add-icon inline-items">
+          <a href="#" class="post-add-icon inline-items <%= "image-active" if current_user.like?(@post) %> btn-like">
             <svg class="olymp-heart-icon"><use xlink:href="/icons/icons.svg#olymp-heart-icon"></use></svg>
-            <span>148</span>
+            <span class="<%= "liked" if current_user.like?(@post) %>"><%= @post.likes.count %></span>
+            
+            <% unless current_user.like? @post %>
+              <form action="<%= post_likes_path @post %>" method="POST" class="like-form d-none">
+                <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+              </form>
+            <% else %>
+              <form action="<%= post_like_path @post, @post.like(current_user) %>" method="POST" class="like-form d-none">
+                <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+                <input name="_method" type="hidden" value="delete">
+              </form>
+            <% end %>
           </a>
 
 

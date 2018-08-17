@@ -7,7 +7,7 @@
 				</div>
 				<div class="ui-block-content">
 					<ul class="widget w-last-photo js-zoom-gallery">
-              <% current_user.images.order(id: :desc).page(1).per(9).each do |image| %>
+              <% @user.images.order(id: :desc).page(1).per(9).each do |image| %>
                 <li>
                 <a href="#">
                   <img src="<%= image.file.thumb.url %>" alt="photo" class="img-responsive">

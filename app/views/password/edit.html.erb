@@ -1,0 +1,39 @@
+<%= render "password/header" %>
+
+<div class="container">
+  <div class="row">
+    <%= render "password/sidebar" %>
+    <div class="col-xl-9 order-xl-2 col-lg-9 order-lg-2 col-md-12 order-md-1 col-sm-12 col-xs-12">
+		<div class="ui-block">
+			<div class="ui-block-title">
+				<h6 class="title">Change Password</h6>
+			</div>
+			<div class="ui-block-content">
+				<%= form_for(current_user, as: :user, url: user_registration_path, html: { method: :put }) do |f| %>
+					<div class="row">
+						<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+							<div class="form-group label-floating is-empty">
+								<%= f.label "Your New Password", class: "control-label" %>
+								<%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+                                <% if @minimum_password_length %>
+                                  <br />
+                                  <em><%= @minimum_password_length %> characters minimum</em>
+                                <% end %>
+                            </div>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+							<div class="form-group label-floating is-empty">
+								<%= f.label "Confirm New Password", class: "control-label" %>
+								<%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+						    </div>
+						</div>
+						<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<%= f.button "Change Password Now!", class: "btn btn-primary btn-lg full-width", type: "submit" %>
+						</div>
+					</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+  </div>
+</div>

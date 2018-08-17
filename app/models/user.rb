@@ -17,4 +17,10 @@ class User < ApplicationRecord
   has_many :follows
   has_many :followers, class_name: Follow.name, foreign_key: :user_follow_id
   has_many :images
+  has_many :likes
+
+  def like? post
+    like = likes.find_by post_id: post.id
+    like.present?
+  end
 end

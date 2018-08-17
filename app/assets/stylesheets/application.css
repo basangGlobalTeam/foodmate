@@ -20,5 +20,6 @@
  *= require_tree ./lib/plugin/
  *= require images
  *= require posts
+ *= require likes
  *= require_self
  */

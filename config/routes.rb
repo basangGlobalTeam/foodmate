@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   resources :notfound, only: :index
   resources :posts, only: [:show, :create, :edit, :update, :destroy] do
     resources :comments, only: [:create, :update, :destroy]
+    resources :likes, only: [:create, :destroy]
   end
 end

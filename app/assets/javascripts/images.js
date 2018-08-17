@@ -68,5 +68,10 @@ $(document).ready(function(){
     if(e.keyCode === 13) {
       $('.form-new-comment').submit();
     }
-  })
+  });
+
+  $('.btn-like').click(function (e) {
+    e.preventDefault();
+    $('.like-form').submit();
+  });
 });

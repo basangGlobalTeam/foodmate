@@ -1,0 +1,39 @@
+<%= render "users/header" %>
+<!-- ... end Top Header -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="ui-block responsive-flex">
+        <div class="ui-block-title">
+          <div class="h6 title"><%= @user.name %> followings (<%= @user.follows.count %>)</div>
+          <form class="w-search">
+            <div class="form-group with-button">
+              <input class="form-control" type="text" placeholder="Search Friends...">
+              <button>
+                <svg class="olymp-magnifying-glass-icon"><use xlink:href="/icons/icons.svg#olymp-magnifying-glass-icon"></use></svg>
+              </button>
+            </div>
+          </form>
+          <a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="icons/icons.svg#olymp-three-dots-icon"></use></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Friends -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <%= paginate @users, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm" %>
+    </div>
+    <% @users.each do |follow| %>
+      <%= render "followings/user", user: follow.user %>
+    <% end %>
+  </div>
+</div>
+
+<!-- ... end Friends -->

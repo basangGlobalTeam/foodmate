@@ -74,4 +74,9 @@ $(document).ready(function(){
     e.preventDefault();
     $('.like-form').submit();
   });
+
+  $('.btn-follow').click(function (e) {
+    e.preventDefault();
+    $('.follow-form').submit();
+  });
 });

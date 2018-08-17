@@ -24,4 +24,18 @@ class User < ApplicationRecord
     like = likes.find_by post_id: post.id
     like.present?
   end
+
+  def following? user
+    user = follows.find_by user_follow_id: user.id
+    user.present?
+  end
+
+  def follow user
+    follows.find_by user_follow_id: user.id
+  end
+
+  def newfeeds
+    f_ids = follows.pluck :user_follow_id
+    Post.where("user_id IN (?) OR user_id = ?", f_ids, id).order(id: :desc)
+  end
 end

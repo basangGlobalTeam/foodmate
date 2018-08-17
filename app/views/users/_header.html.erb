@@ -29,23 +29,26 @@
 							<div class="col-lg-5 ml-auto col-md-5">
 								<ul class="profile-menu">
 									<li>
-										<a href="07-ProfilePage-Photos.html">フォロー中</a>
+										<a href="<%= user_followings_path @user %>">フォロー中</a>
 									</li>
 									<li>
-										<a href="09-ProfilePage-Videos.html">フォロワー</a>
+										<a href="<%= user_followers_path @user %>">フォロワー</a>
 									</li>
 									<li>
-										<div class="more">
-											<svg class="olymp-three-dots-icon"><use xlink:href="/icons/icons.svg#olymp-three-dots-icon"></use></svg>
-											<ul class="more-dropdown more-with-triangle">
-												<li>
-													<a href="#">Report Profile</a>
-												</li>
-												<li>
-													<a href="#">Block Profile</a>
-												</li>
-											</ul>
-										</div>
+                    <% unless current_user.id == @user.id %>
+                      <% unless current_user.following? @user %>
+                        <button class="btn btn-outline-primary btn-sm liked btn-follow" style="margin-bottom: 0"><i class="fa fa-fw fa-check"></i> Follow this user now!</button>
+                        <form action="<%= user_follows_path @user %>" method="POST" class="d-none follow-form">
+                          <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+                        </form>
+                      <% else %>
+                        <button class="btn btn-outline-success btn-sm text-muted btn-follow" style="margin-bottom: 0"> <i class="fa fa-fw fa-close"></i>Following!</button>
+                        <form action="<%= user_follow_path @user, current_user.follow(@user) %>" method="POST" class="d-none follow-form">
+                          <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+                          <input name="_method" type="hidden" value="delete">
+                        </form>
+                      <% end %>
+                    <% end %>
 									</li>
 								</ul>
 							</div>

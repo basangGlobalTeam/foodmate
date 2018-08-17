@@ -67,9 +67,11 @@
       <div class="names-people-likes">
 
         <% if current_user.like? post %>
-          <a href="<%= post_path post %>">You</a>, and
+          <a href="<%= post_path post %>">あなた</a>と
+        <% else %>
+          <a href="<%= post_path post %>">いいねする？</a>
         <% end %>
-        <br><%= post.likes.count > 1 ? post.likes.count - 1 : 0 %> more liked this
+        <br><%= post.likes.count > 1 ? post.likes.count - 1 : 0 %>人がいいねしています
       </div>
 
 

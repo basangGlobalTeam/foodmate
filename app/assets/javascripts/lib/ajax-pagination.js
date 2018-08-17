@@ -3,7 +3,7 @@ $(document).ready(function () {
     var $button = $('#load-more-button');
 
     var page_num = 1;
-    var max_pages = 2;
+    var max_pages = 999;
     var next_link = $button.data('load-link');
 
     var containerID = $button.data('container');

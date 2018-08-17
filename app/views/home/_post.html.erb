@@ -43,7 +43,7 @@
           <% if post.images.count > 1 %>
             <div class="more-images">+ <%= post.images.count %></div>
           <% end %>
-          <img src="<%= post.images.first.file.thumb.url %>" alt="photo">
+          <img src="<%= post.images.first.file.post.url %>" alt="photo">
         <% end %>
       </a>
     </div>

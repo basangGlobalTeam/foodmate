@@ -1,0 +1,63 @@
+<div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-6">
+  <div class="ui-block">
+    <div class="friend-item">
+      <div class="friend-header-thumb">
+        <img src="<%= user.cover.thumb.url %>" alt="friend">
+      </div>
+
+      <div class="friend-item-content">
+
+        <div class="friend-avatar">
+          <div class="author-thumb">
+            <img src="<%= user.avatar.thumb.url %>" width="92px" alt="author">
+          </div>
+          <div class="author-content">
+            <a href="<%= user_path user %>" class="h5 author-name"><%= user.name %></a>
+            <div class="country"><%= user.email %></div>
+          </div>
+        </div>
+
+        <div class="swiper-container" data-slide="fade">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="friend-count" data-swiper-parallax="-500">
+                <a href="#" class="friend-count-item">
+                  <div class="h6"><%= user.followers.count %></div>
+                  <div class="title">Followers</div>
+                </a>
+                <a href="#" class="friend-count-item">
+                  <div class="h6"><%= user.posts.count %></div>
+                  <div class="title">Posts</div>
+                </a>
+                <a href="#" class="friend-count-item">
+                  <div class="h6"><%= user.images.count %></div>
+                  <div class="title">Images</div>
+                </a>
+              </div>
+              <div class="control-block-button" data-swiper-parallax="-100">
+                <a href="<%= user_path user %>" class="btn btn-control bg-blue">
+                  <svg class="olymp-happy-face-icon"><use xlink:href="/icons/icons.svg#olymp-happy-face-icon"></use></svg>
+                </a>
+
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <p class="friend-about" data-swiper-parallax="-500" style="height: 75px; overflow: hidden; text-align: center">
+                <%= user.intro %>
+              </p>
+
+              <div class="friend-since" data-swiper-parallax="-100">
+                <span>Since:</span>
+                <div class="h6"><%= time_ago_in_words user.created_at %></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- If we need pagination -->
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

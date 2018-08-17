@@ -9,7 +9,11 @@ Rails.application.routes.draw do
     root "home#index"
   end
 
-  resources :users, only: :show
+  resources :users, only: :show do
+    resources :follows, only: [:create, :destroy]
+    resources :followers, only: :index
+    resources :followings, only: :index
+  end
   resources :images, only: [:create]
   resources :notfound, only: :index
   resources :posts, only: [:show, :create, :edit, :update, :destroy] do

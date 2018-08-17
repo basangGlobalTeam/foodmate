@@ -9,7 +9,7 @@ en:
     failure:
       already_authenticated: "あなたはサインインしました。"
       inactive: "あなたのアカウントはまだ有効ではありません。"
-      invalid: "Invalid %{authentication_keys} or password.　＝＞　%{authentication_keys}とパスワードが正しくない。　"
+      invalid: "%{authentication_keys}とパスワードが正しくない。　"
       locked: "あなたのアカウントはロックされています。"
       last_attempt: "アカウントがロックされる前にもう一度試行してください。"
       not_found_in_database: "%{authentication_keys}とパスワードが正しくない。"
@@ -28,8 +28,8 @@ en:
       password_change:
         subject: "パスワード変更済み"
     omniauth_callbacks:
-      failure: "\"％{reason}\"が原因で％{kind}からあなたを認証できませんでした。"
-      success: "％{kind}アカウントから正常に認証されました。"
+      failure: "\"%{reason}\"が原因で%{kind}からあなたを認証できませんでした。"
+      success: "%{kind}アカウントから正常に認証されました。"
     passwords:
       no_token: "パスワードリセットの電子メールからこのページにアクセスすることはできません。 パスワードリセットの電子メールから来た場合は、提供された完全なURLを使用していることを確認してください。"
       send_instructions: "数分後にパスワードをリセットする方法の説明が記載されたメールが届きます。"
@@ -55,10 +55,10 @@ en:
   errors:
     messages:
       already_confirmed: "すでに確認済みです。ログインを試してください"
-      confirmation_period_expired: "％{period}以内に確認する必要がある場合は、新しいものをリクエストしてください。"
+      confirmation_period_expired: "%{period}以内に確認する必要がある場合は、新しいものをリクエストしてください。"
       expired: "期限切れです。新しいものをリクエストしてください。"
       not_found: "がありません。"
       not_locked: "ロックされていません。"
       not_saved:
-        one: "1エラーでこの％{resource}の保存が禁止されました："
-        other: "％{count}個のエラーにより、この％{resource}の保存が禁止されました："
+        one: "1エラーでこの%{resource}の保存が禁止されました："
+        other: "%{count}個のエラーにより、この%{resource}の保存が禁止されました："

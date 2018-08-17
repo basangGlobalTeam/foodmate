@@ -28,7 +28,7 @@
       <div class="slider-slides">
         <% @post.images.each do |image| %>
           <a href="#" class="slides-item ">
-            <img src="<%= image.file.thumb.url %>" alt="slide">
+            <img src="<%= image.file.thumb100.url %>" alt="slide">
             <div class="overlay overlay-dark"></div>
           </a>
         <% end %>
@@ -62,10 +62,10 @@
             <div class="more"><svg class="olymp-three-dots-icon"><use xlink:href="/icons/icons.svg#olymp-three-dots-icon"></use></svg>
               <ul class="more-dropdown">
                 <li>
-                  <a href="#">Edit Post</a>
+                  <a href="#">投稿の編集</a>
                 </li>
                 <li>
-                  <a href="#">Delete Post</a>
+                  <a href="#">投稿の削除</a>
                 </li>
               </ul>
             </div>
@@ -96,12 +96,7 @@
           <div class="comments-shared">
             <a href="#" class="post-add-icon inline-items">
               <svg class="olymp-speech-balloon-icon"><use xlink:href="/icons/icons.svg#olymp-speech-balloon-icon"></use></svg>
-              <span>61</span>
-            </a>
-
-            <a href="#" class="post-add-icon inline-items">
-              <svg class="olymp-share-icon"><use xlink:href="/icons/icons.svg#olymp-share-icon"></use></svg>
-              <span>32</span>
+              <span><%= @post.comments.count %></span>
             </a>
           </div>
 
@@ -111,76 +106,49 @@
       </article>
 
       <div class="mCustomScrollbar" data-mcs-theme="dark">
-
+        <%= paginate @comments, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm" %>
         <ul class="comments-list">
-          <li>
-            <div class="post__author author vcard inline-items">
-              <img src="img/avatar48-sm.jpg" alt="author">
-
-              <div class="author-date">
-                <a class="h6 post__author-name fn" href="#">Marina Valentine</a>
-                <div class="post__date">
-                  <time class="published" datetime="2017-03-24T18:18">
-                    46 mins ago
-                  </time>
+          <% @comments.each do |comment| %>
+            <li>
+              <div class="post__author author vcard inline-items">
+                <a href="<%= user_path comment.user %>">
+                  <img src="<%= comment.user.avatar.thumb36.url %>" alt="author">
+                </a>
+                <div class="author-date">
+                  <a class="h6 post__author-name fn" href="<%= user_path comment.user %>"><%= comment.user.name %></a>
+                  <div class="post__date">
+                    <time class="published" datetime="2017-03-24T18:18">
+                      <%= time_ago_in_words comment.created_at %>
+                    </time>
+                  </div>
                 </div>
+
+                <a href="#" class="more">
+                  <% if comment.user.id == current_user.id %>
+                    <%= link_to post_comment_path(@post, comment),method: :delete, data: {confirm: "本当に削除したい？"}, class: "pull-right" do %>
+                      <i class="fa fa-fw fa-trash"></i>
+                    <% end %>
+                <% end %>
+                </a>
+
               </div>
 
-              <a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="/icons/icons.svg#olymp-three-dots-icon"></use></svg></a>
-
-            </div>
-
-            <p>I had a great time too!! We should do it again!</p>
-
-            <a href="#" class="post-add-icon inline-items">
-              <svg class="olymp-heart-icon"><use xlink:href="/icons/icons.svg#olymp-heart-icon"></use></svg>
-              <span>8</span>
-            </a>
-            <a href="#" class="reply">Reply</a>
-          </li>
-
-          <li>
-            <div class="post__author author vcard inline-items">
-              <img src="img/avatar4-sm.jpg" alt="author">
-
-              <div class="author-date">
-                <a class="h6 post__author-name fn" href="#">Chris Greyson</a>
-                <div class="post__date">
-                  <time class="published" datetime="2017-03-24T18:18">
-                    1 hour ago
-                  </time>
-                </div>
-              </div>
-
-              <a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="/icons/icons.svg#olymp-three-dots-icon"></use></svg></a>
-
-            </div>
-
-            <p>Dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.</p>
-
-            <a href="#" class="post-add-icon inline-items">
-              <svg class="olymp-heart-icon"><use xlink:href="/icons/icons.svg#olymp-heart-icon"></use></svg>
-              <span>7</span>
-            </a>
-            <a href="#" class="reply">Reply</a>
-
-          </li>
+              <p><%= comment.content %></p>
+            </li>
+          <% end %>
         </ul>
-
       </div>
 
-      <form class="comment-form inline-items">
+      <form class="comment-form inline-items form-new-comment" action="<%= post_comments_path(@post) %>" method="POST" >
 
         <div class="post__author author vcard inline-items">
-          <img src="img/avatar73-sm.jpg" alt="author">
+          <img src="<%= current_user.avatar.thumb36.url %>" alt="author">
 
           <div class="form-group with-icon-right ">
-            <textarea class="form-control" placeholder="Press Enter to post..." ></textarea>
-            <div class="add-options-message">
-              <a href="#" class="options-message">
-                <svg class="olymp-camera-icon"><use xlink:href="/icons/icons.svg#olymp-camera-icon"></use></svg>
-              </a>
-            </div>
+
+              <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+              <textarea class="form-control new-comment" placeholder="Press Enter to post..." name="comment[content]"></textarea>
+
           </div>
         </div>
 

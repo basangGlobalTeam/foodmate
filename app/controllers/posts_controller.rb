@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   before_action :find_post, only: [:show]
 
   def show
+    @comments = @post.comments.order(id: :desc).page(params[:page]).per 10
   end
 
   def create
@@ -23,7 +24,7 @@ class PostsController < ApplicationController
   def find_post
     @post = Post.find_by id: params[:id]
     unless @post
-      redirect_to root_path
+      redirect_to notfound_index_path
     end
   end
 end

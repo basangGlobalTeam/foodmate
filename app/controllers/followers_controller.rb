@@ -10,6 +10,7 @@ class FollowersController < ApplicationController
   def find_user
     @user = User.find_by id: params[:user_id]
     unless @user
+      flash[:error] = "エラーがあるので、もう一度お願いします。"
       redirect_to notfound_index_path
     end
   end

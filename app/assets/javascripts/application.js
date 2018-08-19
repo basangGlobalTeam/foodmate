@@ -14,6 +14,7 @@
 //= require activestorage
 //= require jquery
 //= require dropzone
+//= require toastr
 //= require ./lib/material.min
 //= require ./lib/theme-plugins
 //= require ./lib/main

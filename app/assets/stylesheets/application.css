@@ -15,6 +15,7 @@
  *= require lib/bootstrap-grid
  *= require font-awesome
  *= require dropzone/dist/dropzone
+ *= require toastr
  *= require lib/theme-styles
  *= require lib/blocks
  *= require_tree ./lib/plugin/

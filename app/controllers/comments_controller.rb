@@ -5,8 +5,10 @@ class CommentsController < ApplicationController
   def create
     @comment = @post.comments.new comment_params.merge(user_id: current_user.id)
     if @comment.save
+      flash[:success] = "コメントを保存しました。"
       redirect_back fallback_location: notfound_index_path
     else
+      flash[:error] = "エラーがあるので、もう一度お願いします。"
       redirect_to notfound_index_path
     end
   end

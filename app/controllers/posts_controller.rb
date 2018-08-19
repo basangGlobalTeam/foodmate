@@ -10,8 +10,10 @@ class PostsController < ApplicationController
     @post = current_user.posts.new post_params
     @post.image_ids = params[:post][:image_ids]
     if @post.save
-      redirect_to root_path
+      flash[:success] = "新しい投稿を投稿しました。"
+      redirect_to post_path @post
     else
+      flash[:error] = "エラーがあるので、もう一度お願いします。"
       redirect_to :back
     end
   end

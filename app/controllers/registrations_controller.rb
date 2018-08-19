@@ -1,9 +1,15 @@
 class RegistrationsController < Devise::RegistrationsController
+  layout "application", only: [:edit, :update]
 
   protected
 
   def update_resource(resource, params)
-    resource.update_without_password(params)
+    if params[:password].blank?
+      resource.update_without_password(params)
+    else
+      resource.update_with_password(params)
+    end
+
   end
   def after_update_path_for(resource)
     user_path(resource)

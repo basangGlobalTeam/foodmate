@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   authenticated  do
     root "home#index"
   end
-
+  get "users/password", to: "password#index"
   resources :users, only: :show do
     resources :follows, only: [:create, :destroy]
     resources :followers, only: :index
@@ -20,5 +20,5 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :update, :destroy]
     resources :likes, only: [:create, :destroy]
   end
-  resources :password, only: :edit
+
 end

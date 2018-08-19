@@ -1,4 +1,4 @@
 class PasswordController < ApplicationController
-    def edit
+    def index
     end
 end

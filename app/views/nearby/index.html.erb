@@ -1,12 +1,51 @@
 <div class="container">
  <div class="row">
-   <div class="col-8 offset-2">
+   <div class="col-4">
+     <div class="ui-block">
+       <div class="ui-block-title">
+         <h6 class="title">トップ「いいね」の投稿</h6>
+         <a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="icons/icons.svg#olymp-three-dots-icon"></use></svg></a>
+       </div>
+       <ul class="widget w-activity-feed notification-list">
+         <% @top_likes.each do |post| %>
+           <li>
+             <div class="author-thumb">
+               <img src="<%= post.user.avatar.thumb36.url %>" width="36px" alt="author">
+             </div>
+             <div class="notification-event">
+               <a href="<%= user_path post.user %>" class="h6 notification-friend"><%= post.user.name %></a>の<a href="<%= post_path post %>" class="">投稿</a> は<%= post.likes.count %>「いいね」がある。
+               <span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18"><%= time_ago_in_words post.created_at %></time></span>
+             </div>
+           </li>
+         <% end %>
+       </ul>
+     </div>
+     <div class="ui-block">
+
+       <div class="ui-block-title">
+         <h6 class="title">人気がある人？</h6>
+         <a href="#" class="more"><svg class="olymp-three-dots-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="icons/icons.svg#olymp-three-dots-icon"></use></svg></a>
+       </div>
+
+       <ul class="widget w-activity-feed notification-list">
+         <% @top_followers.each do |user| %>
+           <li>
+             <div class="author-thumb">
+               <img src="<%= user.avatar.thumb36.url %>" width="36px" alt="author">
+             </div>
+             <div class="notification-event">
+               <a href="<%= user_path user %>" class=""><%=  user.name %></a> は<%= user.followers.count %>フォロー中人がいる。
+             </div>
+           </li>
+         <% end %>
+       </ul>
+     </div>
+   </div>
+   <div class="col-8">
      <div class="card">
        <div class="card-body">
          <div class="row">
            <div class="col-4 offset-4">
-
-
              <img src="<%= asset_path "loading.gif" %>" alt="" class="img-loading">
              <form action="<%= nearby_index_path %>" id="location" class="d-none">
                <div class="form-group label-floating">
@@ -17,7 +56,11 @@
                <button class="btn btn-primary btn-md-2 btn-block">検索</button>
              </form>
 
-
+            <% unless @posts.present? %>
+               <div id="newsfeed-items-grid">
+                 <h6 class="text-center">データがありません。</h6>
+               </div>
+           <% end %>
            </div>
          </div>
        </div>
@@ -26,14 +69,13 @@
    <br>
    <div class="col-8 offset-2">
      <% if @posts %>
-
        <div id="newsfeed-items-grid">
          <% @posts.each do |post| %>
            <%= render "home/post", post: post %>
          <% end %>
        </div>
        <%= paginate @posts, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm" %>
-   <% end %>
+    <% end %>
    </div>
  </div>
 </div>

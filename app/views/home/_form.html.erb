@@ -25,6 +25,11 @@
             <textarea class="form-control" placeholder="" name="post[content]"></textarea>
             <br>
             <div class="add-options-message d-none more-info">
+              <div class="label-floating">
+                <label class="control-label">Foods</label>
+                <%= select_tag "post[food_ids]", options_from_collection_for_select(Food.all, :id, :name), class: "selectpicker form-control foods-input", multiple: "multiple" %>
+              </div>
+              <br>
               <div class="form-group label-floating">
                 <label class="control-label">レストラン名</label>
                 <input class="form-control" placeholder="" type="text" name="post[restaurant]">
@@ -35,10 +40,6 @@
                 <input class="form-control" placeholder="" type="text" name="post[address]">
               </div>
               <br>
-              <div class="form-group label-floating">
-                <label class="control-label">Food</label>
-                <input class="form-control" placeholder="" type="text" name="post[food]">
-              </div>
             </div>
           </div>
           <div class="add-options-message">

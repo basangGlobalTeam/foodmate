@@ -52,6 +52,12 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
+    algoliasearch (1.23.2)
+      httpclient (~> 2.8, >= 2.8.3)
+      json (>= 1.5.1)
+    algoliasearch-rails (1.20.4)
+      algoliasearch (>= 1.17.0, < 2.0.0)
+      json (>= 1.5.1)
     archive-zip (0.11.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
@@ -137,12 +143,14 @@ GEM
     geocoder (1.5.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    httpclient (2.8.3)
     i18n (1.1.0)
       concurrent-ruby (~> 1.0)
     io-like (0.3.0)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
+    json (2.1.0)
     kaminari (1.1.1)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.1.1)
@@ -204,6 +212,7 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.4)
       loofah (~> 2.2, >= 2.2.2)
+    rails_param (0.10.0)
     railties (5.2.1)
       actionpack (= 5.2.1)
       activesupport (= 5.2.1)
@@ -272,6 +281,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  algoliasearch-rails
   bootsnap (>= 1.1.0)
   bootstrap4-kaminari-views
   byebug
@@ -291,6 +301,7 @@ DEPENDENCIES
   mini_magick (~> 4.8)
   puma (~> 3.11)
   rails (~> 5.2.1)
+  rails_param
   sass-rails (~> 5.0)
   selenium-webdriver
   spring

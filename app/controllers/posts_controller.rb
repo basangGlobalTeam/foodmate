@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!
   before_action :post_params, only: [:create]
   before_action :find_post, only: [:show]
 
@@ -9,6 +10,7 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.new post_params
     @post.image_ids = params[:post][:image_ids]
+    @post.food_ids = params[:post][:food_ids]
     if @post.save
       flash[:success] = "新しい投稿を投稿しました。"
       redirect_to post_path @post

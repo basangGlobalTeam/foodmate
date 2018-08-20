@@ -14,6 +14,9 @@ Rails.application.routes.draw do
     resources :followers, only: :index
     resources :followings, only: :index
   end
+
+  resources :search, only: :index
+  resources :nearby, only: :index
   resources :images, only: [:create]
   resources :notfound, only: :index
   resources :posts, only: [:show, :create, :edit, :update, :destroy] do

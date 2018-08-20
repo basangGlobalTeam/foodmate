@@ -13,8 +13,8 @@
             <%= time_ago_in_words post.created_at %>
           </time>
           <% if post.restaurant.present?  %>
-            in
-            <%= post.restaurant %> <br>
+            in restaurant
+            <a href="#"><%= post.restaurant %></a> <br>
           <% end %>
           <% if post.address.present?  %>
             <i class="fa fa-fw fa-map-marker"></i> <%= post.address %> <br>
@@ -36,6 +36,10 @@
     </div>
     <p>
       <%= post.content %>
+      <br>
+      <% post.foods.each do |food| %>
+        <a href="#">#<%= food.name %></a>
+      <% end %>
     </p>
     <div class="post-thumb">
       <a href="<%= post_path post %>">

@@ -10,13 +10,13 @@
     <form class="search-bar w-search notification-list friend-requests" action="<%= search_index_path%>">
       <div class="form-group with-button">
         <input type="hidden" name="type" value="<%= params[:type] == 'user' ? 'user' : 'post' %>">
-        <input class="form-control js-user-search" placeholder="Search here people or pages..." type="text" name="query" value="<%= params[:query] %>">
+        <input class="form-control js-user-search" placeholder="ユーザーや投稿の検索" type="text" name="query" value="<%= params[:query] %>">
         <button>
           <svg class="olymp-magnifying-glass-icon"><use xlink:href="/icons/icons.svg#olymp-magnifying-glass-icon"></use></svg>
         </button>
       </div>
     </form>
-    <a href="<%= nearby_index_path %>" class="link-find-friend">Nearby</a>
+    <a href="<%= nearby_index_path %>" class="link-find-friend">近くのお店</a>
 
     <div class="control-block">
 

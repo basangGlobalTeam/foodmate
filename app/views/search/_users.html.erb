@@ -1,12 +1,12 @@
 <div class="col-3">
   <div class="list-group">
-    <a href="#" class="list-group-item list-group-item-action">Post</a>
+    <a href="#" class="list-group-item list-group-item-action"></a>
   </div>
 </div>
 <div class="col-9">
   <div class="ui-block">
     <div class="ui-block-title">
-      <h6 class="title">User search: 「<%= params[:query] %>」</h6>
+      <h6 class="title">ユーザー検索のキーワード: 「<%= params[:query] %>」</h6>
       <%= paginate @results, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm", window: 2 %>
     </div>
 

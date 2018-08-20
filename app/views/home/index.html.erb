@@ -9,38 +9,70 @@
     <aside class="col-xl-3 order-xl-1 col-lg-6 order-lg-2 col-md-6 col-sm-12 col-xs-12">
       <div class="ui-block">
         <div class="ui-block-title">
-          <h6 class="title">あなたが気に入るかもしれない投稿</h6>
+          <h6 class="title">トップ「いいね」の投稿</h6>
           <a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="icons/icons.svg#olymp-three-dots-icon"></use></svg></a>
         </div>
+        <ul class="widget w-activity-feed notification-list">
+          <% @top_likes.each do |post| %>
+            <li>
+              <div class="author-thumb">
+                <img src="<%= post.user.avatar.thumb36.url %>" width="36px" alt="author">
+              </div>
+              <div class="notification-event">
+                <a href="<%= user_path post.user %>" class="h6 notification-friend"><%= post.user.name %></a>の<a href="<%= post_path post %>" class="">投稿</a> は<%= post.likes.count %>「いいね」がある。
+                <span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18"><%= time_ago_in_words post.created_at %></time></span>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="ui-block">
+        <div class="ui-block-title">
+          <h6 class="title">トップ「コメント」の投稿</h6>
+          <a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="icons/icons.svg#olymp-three-dots-icon"></use></svg></a>
         </div>
-
-      
+        <ul class="widget w-activity-feed notification-list">
+          <% @top_comments.each do |post| %>
+            <li>
+              <div class="author-thumb">
+                <img src="<%= post.user.avatar.thumb36.url %>" width="36px" alt="author">
+              </div>
+              <div class="notification-event">
+                <a href="<%= user_path post.user %>" class="h6 notification-friend"><%= post.user.name %></a>の<a href="<%= post_path post %>" class="">投稿</a> は<%= post.comments.count %>「コメント」がある。
+                <span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18"><%= time_ago_in_words post.created_at %></time></span>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
     </aside>
-
     <!-- ... end Left Sidebar -->
 
-
-    <!-- Right Sidebar -->
-
-    <aside class="col-xl-3 order-xl-3 col-lg-6 order-lg-3 col-md-6 col-sm-12 col-xs-12">\
-      <div class="ui-block">
-        <div class="ui-block-title">
-          <h6 class="title">友達かも？</h6>
-          <a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="icons/icons.svg#olymp-three-dots-icon"></use></svg></a>
-        </div>
+    <aside class="col-xl-3 order-xl-3 col-lg-6 order-lg-3 col-md-6 col-sm-12 col-xs-12">
 
       <div class="ui-block">
 
         <div class="ui-block-title">
-          <h6 class="title">最近のアクティビティ</h6>
-          <a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="icons/icons.svg#olymp-three-dots-icon"></use></svg></a>
+          <h6 class="title">人気がある人？</h6>
+          <a href="#" class="more"><svg class="olymp-three-dots-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="icons/icons.svg#olymp-three-dots-icon"></use></svg></a>
         </div>
+
+        <ul class="widget w-activity-feed notification-list">
+          <% @top_followers.each do |user| %>
+            <li>
+              <div class="author-thumb">
+                <img src="<%= user.avatar.thumb36.url %>" width="36px" alt="author">
+              </div>
+              <div class="notification-event">
+                <a href="<%= user_path user %>" class=""><%=  user.name %></a> は<%= user.followers.count %>フォロー中人がいる。
+              </div>
+            </li>
+          <% end %>
+        </ul>
       </div>
-      </div>
+
 
     </aside>
-
-    <!-- ... end Right Sidebar -->
 
   </div>
 </div>

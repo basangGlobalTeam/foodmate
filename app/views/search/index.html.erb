@@ -4,10 +4,10 @@
       <div class="col-9 offset-3">
         <ul class="nav nav-tabs nav-justified">
           <li class="nav-item">
-            <a class="nav-link <%= @type == 'user' ? 'active' : '' %>" href="<%= search_index_path query: params[:query], type: "user" %>">by User</a>
+            <a class="nav-link <%= @type == 'user' ? 'active' : '' %>" href="<%= search_index_path query: params[:query], type: "user" %>">ユーザーの検索</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link <%= @type == 'post' ? 'active' : '' %>" href="<%= search_index_path query: params[:query], type: "post" %>">by Post</a>
+            <a class="nav-link <%= @type == 'post' ? 'active' : '' %>" href="<%= search_index_path query: params[:query], type: "post" %>">投稿の検索</a>
           </li>
         </ul>
       </div>

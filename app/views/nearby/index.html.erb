@@ -65,17 +65,18 @@
          </div>
        </div>
      </div>
-   </div>
-   <br>
-   <div class="col-8 offset-2">
-     <% if @posts %>
-       <div id="newsfeed-items-grid">
-         <% @posts.each do |post| %>
-           <%= render "home/post", post: post %>
+     <div class="row">
+       <div class="col-12">
+         <% if @posts.present? %>
+           <div id="newsfeed-items-grid">
+             <% @posts.each do |post| %>
+               <%= render "home/post", post: post %>
+             <% end %>
+           </div>
+           <%= paginate @posts, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm" %>
          <% end %>
        </div>
-       <%= paginate @posts, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm" %>
-    <% end %>
+     </div>
    </div>
  </div>
 </div>

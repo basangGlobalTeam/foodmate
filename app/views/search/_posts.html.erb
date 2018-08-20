@@ -1,0 +1,29 @@
+<div class="col-3">
+  <div class="list-group">
+    <a href="#" class="list-group-item list-group-item-action active">By food</a>
+  </div>
+  <div>
+    <form action="<%= search_index_path %>" method="get">
+      <br>
+      <input type="hidden" name="type" value="<%= "post" %>">
+      <div class="label-floating">
+        <%= select_tag "query", options_from_collection_for_select(Food.all, :name, :name), class: "selectpicker form-control foods-input", require: true %>
+      </div>
+      <button class="btn btn-primary btn-md-2 btn-block" type="submit">Search</button>
+    </form>
+  </div>
+</div>
+<div class="col-9">
+  <div class="ui-block">
+    <div class="ui-block-title">
+      <h6 class="title">User search: 「<%= params[:query] %>」</h6>
+      <%= paginate @results, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm", window: 2 %>
+    </div>
+
+    <div class="container">
+      <% @results.each do |post| %>
+          <%= render "home/post", post: post %>
+      <% end %>
+    </div>
+  </div>
+</div>

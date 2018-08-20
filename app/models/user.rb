@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  include AlgoliaSearch
+
   enum sex: [:female, :male]
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -37,5 +39,9 @@ class User < ApplicationRecord
   def newfeeds
     f_ids = follows.pluck :user_follow_id
     Post.where("user_id IN (?) OR user_id = ?", f_ids, id).order(id: :desc)
+  end
+
+  algoliasearch do
+    attribute :name, :email
   end
 end

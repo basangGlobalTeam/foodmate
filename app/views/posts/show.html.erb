@@ -73,7 +73,12 @@
 
         </div>
 
-        <p><%= @post.content %></p>
+        <p><%= @post.content %>
+          <br>
+          <% @post.foods.each do |food| %>
+            <a href="#">#<%= food.name %></a>
+          <% end %>
+        </p>
 
         <p>
           <% if @post.restaurant.present?  %>

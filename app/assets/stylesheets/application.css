@@ -12,10 +12,11 @@
  *
  *= require lib/bootstrap-reboot
  *= require lib/bootstrap
- *= require lib/bootstrap-grid
+ *= require bootstrap/dist/css/bootstrap-grid
  *= require font-awesome
  *= require dropzone/dist/dropzone
  *= require toastr
+ *= require select2/dist/css/select2
  *= require lib/theme-styles
  *= require lib/blocks
  *= require_tree ./lib/plugin/

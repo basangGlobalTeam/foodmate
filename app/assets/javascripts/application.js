@@ -15,6 +15,8 @@
 //= require jquery
 //= require dropzone
 //= require toastr
+//= require algolia/v3/algoliasearch.min
+//= require select2/dist/js/select2
 //= require ./lib/material.min
 //= require ./lib/theme-plugins
 //= require ./lib/main

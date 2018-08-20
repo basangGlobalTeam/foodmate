@@ -1,0 +1,49 @@
+<div class="col-3">
+  <div class="list-group">
+    <a href="#" class="list-group-item list-group-item-action">Post</a>
+  </div>
+</div>
+<div class="col-9">
+  <div class="ui-block">
+    <div class="ui-block-title">
+      <h6 class="title">User search: 「<%= params[:query] %>」</h6>
+      <%= paginate @results, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm", window: 2 %>
+    </div>
+
+    <ul class="notification-list friend-requests">
+      <% @results.each do |user| %>
+        <li>
+          <div class="author-thumb">
+            <img src="<%= user.avatar.thumb36.url %>" alt="author" width="36px">
+          </div>
+          <div class="notification-event">
+            <a href="<%= user_path user %>" class="h6 notification-friend"><%= user.name %></a>
+            <span class="chat-message-item">Followers: <%= user.followers.count %> people</span>
+            <span class="chat-message-item">, Posts: <%= user.posts.count %> post(s)</span>
+          </div>
+          <span class="notification-icon">
+
+            <% if current_user.following? user %>
+              <a href="#" class="accept-request">
+								<span class="icon-add">
+									<svg class="olymp-happy-face-icon"><use xlink:href="/icons/icons.svg#olymp-happy-face-icon"></use></svg>
+								</span>
+								Following
+							</a>
+            <% else %>
+              <a href="#" class="accept-request request-del">
+								<span class="icon-minus">
+									<svg class="olymp-happy-face-icon"><use xlink:href="/icons/icons.svg#olymp-happy-face-icon"></use></svg>
+								</span>
+                Follow now!
+							</a>
+            <% end %>
+
+						</span>
+        </li>
+      <% end %>
+    </ul>
+
+  </div>
+
+</div>

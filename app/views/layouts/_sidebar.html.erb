@@ -49,12 +49,13 @@
             <span class="left-menu-title">ニュースフィード</span>
           </a>
         </li>
-        <li>
-          <a href="<%= user_path current_user %>">
-            <svg class="olymp-star-icon left-menu-icon"  data-toggle="tooltip" data-placement="right"   data-original-title="お気に入りのページ"><use xlink:href="/icons/icons.svg#olymp-star-icon"></use></svg>
-            <span class="left-menu-title">プロフィール</span>
-          </a>
-        </li>
+        <% if user_signed_in? %>
+          <li>
+            <a href="<%= user_path current_user %>">
+              <svg class="olymp-star-icon left-menu-icon"  data-toggle="tooltip" data-placement="right"   data-original-title="お気に入りのページ"><use xlink:href="/icons/icons.svg#olymp-star-icon"></use></svg>
+            </a>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>

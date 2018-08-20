@@ -30,11 +30,12 @@
   </div>
 
   <div class="fixed-sidebar-left sidebar--large" id="sidebar-left-1">
+    <% if user_signed_in?  %>
     <a href="<%= user_path current_user %>" class="logo">
       <img src="<%= image_path "logo.png" %>" alt="フードメイト">
       <h6 class="logo-title">olympus</h6>
     </a>
-
+<% end  %>
     <div class="mCustomScrollbar" data-mcs-theme="dark">
       <ul class="left-menu">
         <li>

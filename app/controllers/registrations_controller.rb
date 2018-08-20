@@ -1,5 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
   layout "application", only: [:edit, :update]
+  layout "login", only: [:new]
 
   protected
 
